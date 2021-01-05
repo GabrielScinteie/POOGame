@@ -10,7 +10,7 @@ using namespace std;
 
 bool Player::checkcollision(int topA, int rightA, int bottomA, int leftA, int topB, int rightB, int bottomB, int leftB)
 {
-	int a = 7;//*
+	int a = 9;//*
 	if (bottomA <= topB + a)
 	{
 		return false;
@@ -21,7 +21,7 @@ bool Player::checkcollision(int topA, int rightA, int bottomA, int leftA, int to
 		return false;
 	}
 
-	if (leftA >= rightB - a*3/2)
+	if (leftA >= rightB - a*2)
 	{
 		return false;
 	}

@@ -1,7 +1,2 @@
-﻿  Bomb.cpp
-  Enemy.cpp
-  Explosion.cpp
-  Game.cpp
-  Player.cpp
-  Generating Code...
+﻿  Player.cpp
   SDL_GameTemplate.vcxproj -> C:\Users\Gabi\Desktop\Professional\Facultate\Anul2 - Sem1\POO\#ProiectFinal\SDL_GameTemplate - InputMiscareJucator\x64\Debug\SDL_GameTemplate.exe
