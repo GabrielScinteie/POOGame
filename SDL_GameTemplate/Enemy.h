@@ -25,7 +25,6 @@ protected:
 	int x, y;
 	int ordernumber;//numarul de ordine din vectorul cu inamici
 	bool alive = 1;
-	int speed;
 	int direction;
 public:
 	static int nrEnemies;
@@ -36,11 +35,14 @@ public:
 	int getx() { return x; }
 	int gety() { return y; }
 	int getstate() { return alive; }
-
+	virtual int getspeed() { return 0; };
+	virtual void setspeed(int x) {};
 	void Draw(SDL_Rect camera);
-	void Update(Explosion* exp, int nrordine,Player* player);
+	void virtual Update(Explosion* exp, int nrordine,Player* player);
 	void Render() {}
-	void friend initializeEnemiesLvl1();
 };
 
 void initializeEnemiesLvl1(SDL_Renderer* renderer);
+void initializeEnemiesLvl2(SDL_Renderer* renderer);
+
+bool checkcollision(int topA, int rightA, int bottomA, int leftA, int topB, int rightB, int bottomB, int leftB);

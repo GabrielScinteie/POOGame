@@ -1,7 +1,8 @@
 #pragma once
 #include "Sdl.h"
+#include "GameObject.h"
 
-class Tile
+class Tile: public GameObject
 {
 	protected:
 		int x,y, width, height;//dreptunghiul ce contine hitbox-ul pt coliziuni

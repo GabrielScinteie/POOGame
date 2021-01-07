@@ -20,5 +20,5 @@ public:
 
 	Explosion(const char* textureSheet, SDL_Renderer* renderer, int x, int y);
 	~Explosion();
-	void draw(SDL_Rect camera);
+	void Draw(SDL_Rect camera);
 };

@@ -105,7 +105,7 @@ void Bomb::Update(Explosion* exp)
 		
 }
 
-void Bomb::draw(SDL_Rect camera)
+void Bomb::Draw(SDL_Rect camera)
 {
 	destRect.x = x - camera.x;
 	destRect.y = y - camera.y;

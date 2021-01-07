@@ -5,8 +5,12 @@
 #include "Map.h"
 #include "Defines.h"
 #include "Bomb.h"
+#include "Enemy.h"
 
 using namespace std;
+
+
+SDL_Rect* tempdest;
 
 bool Player::checkcollision(int topA, int rightA, int bottomA, int leftA, int topB, int rightB, int bottomB, int leftB)
 {
@@ -33,9 +37,6 @@ bool Player::checkcollision(int topA, int rightA, int bottomA, int leftA, int to
 
 	return true;
 }
-
-SDL_Rect* tempdest;
-
 
 Player::Player(const char* path, SDL_Renderer* renderer): renderer(renderer)
 {
@@ -134,15 +135,30 @@ void Player::handleevent(SDL_Event& event)
 				case SDLK_ESCAPE:
 				{	
 					//resetam terenul distrus
-					for(int i = 0; i < Map::nrTiles; i++)
+					/*for(int i = 0; i < Map::nrTiles; i++)
 						if (Map::allTiles[i]->gettype() == 4 && Map::allTiles[i]->getstate() == 1)
 						{
 							Map::allTiles[i]->setstate(0);
 							Map::allTiles[i]->settype(2);
 							Map::allTiles[i]->setsrcx(2 * 32);
-						}
-					Game::activated[0] = Game::activated[1] = 0; // Dezactivez mapa si playerul
-					Game::activated[2] = 1;//pun meniul
+						}*/
+
+					Game::activated[0] = Game::activated[1] = Game::activated[12] = 0; // Dezactivez mapa si playerul
+					Game::activated[2] = Game::activated[4] = 1;//pun meniul
+					Game::activated[10] = 1;
+
+
+					for (int i = 0; i < Map::nrTiles; i++)
+						delete Map::allTiles[i];
+					Map::nrTiles = 0;
+
+					for (int i = 0; i < Bomb::nrBombs; i++)
+						delete Bomb::allBombs[i];
+					Bomb::nrBombs = 0;
+					for (int i = 0; i < Enemy::nrEnemies; i++)
+						delete Enemy::allEnemies[i];
+					Enemy::nrEnemies = 0;
+
 				}
 				case SDLK_UP:
 				{

@@ -66,7 +66,7 @@ void Map::LoadMap(char* path, int sizeX, int sizeY)
 	mapFile.close();
 }
 
-void Map::DrawMap(SDL_Rect camera)
+void Map::Draw(SDL_Rect camera)
 {
 
 	for (int i = 0; i < nrTiles; i++)

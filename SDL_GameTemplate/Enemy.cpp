@@ -9,15 +9,12 @@
 int Enemy::nrEnemies = 0;
 Enemy* Enemy::allEnemies[100];
 
-
 int dl[] = { 0,1,0,-1 };
 int dc[] = { -1,0,1,0 };
-
 
 Enemy::Enemy(const char* textureSheet, SDL_Renderer* renderer, int x, int y):GameObject(textureSheet,renderer)
 {
 	direction = rand()%4;
-	speed = 3;
 	this->x = x;
 	this->y = y;
 	srcRect.x = 64;
@@ -65,6 +62,12 @@ bool checkcollision(int topA, int rightA, int bottomA, int leftA, int topB, int 
 
 void initializeEnemiesLvl1(SDL_Renderer* renderer)
 {
+	Enemy::allEnemies[Enemy::nrEnemies] = new Enemy("assets/Enemy.png", renderer, 4 * 64, 2 * 64);
+	Enemy::nrEnemies++;
+}
+
+void initializeEnemiesLvl2(SDL_Renderer* renderer)
+{
 	Enemy::allEnemies[Enemy::nrEnemies] = new Enemy("assets/Enemy.png", renderer, 11 * 64, 1 * 64);
 	Enemy::nrEnemies++;
 	Enemy::allEnemies[Enemy::nrEnemies] = new Enemy("assets/Enemy.png", renderer, 22 * 64, 1 * 64);
@@ -85,9 +88,9 @@ void initializeEnemiesLvl1(SDL_Renderer* renderer)
 	Enemy::nrEnemies++;
 }
 
-
 void Enemy::Update(Explosion* exp,int nrordine, Player* player)
 {
+	int speed = 2;
 	if (exp->getfire()[y/64][x/64] == 1 || exp ->getfire()[(y+32)/64][(x+32)/64] == 1)
 	{
 		delete Enemy::allEnemies[nrordine];

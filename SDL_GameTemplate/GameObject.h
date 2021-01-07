@@ -4,11 +4,13 @@
 class GameObject
 {
 public:
+	GameObject() = default;
 	GameObject(const char* textureSheet, SDL_Renderer* renderer);
 	virtual ~GameObject();
 
 	void virtual Update();
-	void virtual Render() = 0;
+	void virtual Render();
+	void virtual Draw(SDL_Rect camera) = 0;
 
 protected:
 	SDL_Texture* texture;

@@ -9,7 +9,7 @@ public:
 	void Render();
 	void pressed();
 	bool inside(int x, int y);
-
+	void Draw(SDL_Rect camera) {};
 private:
 	void (*callback)();
 };

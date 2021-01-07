@@ -60,7 +60,7 @@ Explosion::~Explosion()
 
 SDL_Rect* dest;
 
-void Explosion:: draw(SDL_Rect camera)
+void Explosion:: Draw(SDL_Rect camera)
 {
 	dest = new SDL_Rect;
 	dest->w =  dest->h = 64;

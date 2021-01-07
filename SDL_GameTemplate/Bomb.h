@@ -11,7 +11,7 @@ protected:
 	bool exit;//exit = 1 daca playerului a iesit din raza bombei
 public:
 	Bomb(const char* textureSheet, SDL_Renderer* renderer, SDL_Rect destRect); 
-	void draw(SDL_Rect camera);
+	void Draw(SDL_Rect camera);
 
 	void setanimation(unsigned int x);
 	unsigned int getTime();
