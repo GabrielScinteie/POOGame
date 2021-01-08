@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <exception>
 #include "Defines.h"
 #include "Game.h"
 #include "Map.h"
@@ -137,8 +138,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	src.w = 128;
 	src.h = 64;
-	dest.h = height / 3;
-	dest.w = width / 2;
+	dest.h = height / 2;
+	dest.w = width / 4 * 3;
 	dest.x = width / 2 - dest.w/2;
 	dest.y = height / 2 - dest.h/2;
 
@@ -150,17 +151,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	explosions = new Explosion("assets/Fire.png", renderer, 20, 25);
 	explosions0 = new Explosion("assets/Fire.png", renderer, 7, 7);
-
-
-	/*AccessFile.open("assets/LevelAccess.txt");
-
-	if (AccessFile)
-	{
-		cout << "Deschidere cu succes\n";
-
-	}
-	else
-		cout << "Eroare deschidere fisier\n";*/
 
 	camera = new SDL_Rect{ 0,0,width, height };
 }
@@ -182,6 +172,36 @@ void Game::handleEvents()
 			else
 			{	//daca nu sunt in interiorul jocului verific doar daca se apasa butoane(verific in update hover-urile)
 				
+				if (activated[10] == 1) // daca jocul nu e inceput si am mouse-ul in interior vreunui buton
+				{
+
+					int x, y;
+					SDL_GetMouseState(&x, &y);
+
+					//verific daca mouse-ul este in interiorul butoanelor
+					if (NewGame->inside(x, y) == 1)
+					{
+						activated[2] = 0;
+						activated[3] = 1;
+					}
+					else
+					{
+						activated[2] = 1;
+						activated[3] = 0;
+					}
+
+					if (Quit1->inside(x, y) == 1)
+					{
+						activated[4] = 0;
+						activated[5] = 1;
+					}
+					else
+					{
+						activated[4] = 1;
+						activated[5] = 0;
+					}
+				}
+
 				if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE && activated[10] == 0)
 				{
 					Game::activated[0] = 0;//harta cea mai grea
@@ -213,7 +233,17 @@ void Game::handleEvents()
 							Level1->pressed();
 							player->init();
 							initializeEnemiesLvl1(renderer);
+							//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							
 							map->LoadMap((char*)"assets/Map0.txt", 7, 7);
+							
+							
 						}
 
 						if (Level2->inside(x, y) == 1 && activated[8] == 1)//si am deblocat lvl 2
@@ -388,9 +418,9 @@ void Game::render() const
 	SDL_RenderClear(renderer);
 
 
-	for(int i = 0; i <= 12; i++)
-		std::cout << activated[i] << ' ';
-	std::cout << '\n';
+	//for(int i = 0; i <= 12; i++)
+	//	std::cout << activated[i] << ' ';
+	//std::cout << '\n';
 
 	if (activated[1] == 1)//daca sunt in joc <-> playerul este activ
 	{

@@ -6,6 +6,7 @@
 #include "Map.h"
 #include "TextureManager.h"
 #include "Game.h"
+#include <exception>
 
 using namespace std;
 
@@ -40,15 +41,17 @@ void Map::LoadMap(char* path, int sizeX, int sizeY)
 {
 	char tile;
 	fstream mapFile;
-	mapFile.open(path);
-
-	if (mapFile)
-	{
-		cout << "Deschidere cu succes\n";
-		
+	//mapFile.open(path);
+	try {
+		mapFile.open(path);
+		if (!mapFile)
+			throw "Eroare deschidere fisier harta\n";
 	}
-	else
-		cout << "Eroare deschidere fisier\n";
+
+	catch (const char* error)
+	{
+		std::cout << error << '\n';
+	}
 
 	for (int row = 0; row < sizeX; row++)
 	{

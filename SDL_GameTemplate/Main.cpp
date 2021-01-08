@@ -1,4 +1,6 @@
 //Using SDL and standard IO
+#include <exception>
+#include <iostream>
 #include "Game.h"
 #include <SDL.h>
 #include "Defines.h"
@@ -16,10 +18,13 @@ int main(int argc, char* args[])
 
 	while (game->running())
 	{
-		Uint32 frameStart = SDL_GetTicks();
+		Uint32 frameStart;
+
+		frameStart = SDL_GetTicks();
 		game->handleEvents();
 		game->update();
 		game->render();
+
 		const int frameTime = SDL_GetTicks() - frameStart;
 
 		if (frameDelay > frameTime)

@@ -22,21 +22,21 @@ Explosion::Explosion(const char* textureSheet, SDL_Renderer* renderer,int x, int
 	for (int i = 0; i < lungime; i++)
 		for (int j = 0; j < latime; j++)
 			firetime[i][j] = fire[i][j] = 0;
-	std::cout << "Totul bine la constructor\n";
+	//std::cout << "Totul bine la constructor\n";
 };
 
 void Explosion::setfire(int x, int y)
 {
 	fire[x][y] = 1;
 	firetime[x][y] = SDL_GetTicks();
-	std::cout << "Totul bine la setfire: " << x << ' ' << y << '\n';
+	//std::cout << "Totul bine la setfire: " << x << ' ' << y << '\n';
 }
 
 void Explosion::stopfire(int x, int y)
 {
 	fire[x][y] = 0;
 	firetime[x][y] = 0;
-	std::cout << "Totul bine la stopfire\n";
+	//std::cout << "Totul bine la stopfire\n";
 }
 
 Explosion::~Explosion()
