@@ -361,7 +361,7 @@ void Game::update() const
 							{
 								if (SDL_GetTicks() - explosions->getfiretime()[i][j] > 250)
 									explosions->stopfire(i, j);
-								std::cout << "Am gasit un loc cu foc\n";
+								
 							}
 					for (int i = 0; i < Enemy::nrEnemies; i++)
 						Enemy::allEnemies[i]->Update(explosions, i, player);

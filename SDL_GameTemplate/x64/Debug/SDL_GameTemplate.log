@@ -1,2 +1,19 @@
-﻿  Game.cpp
+﻿  Bomb.cpp
+  Button.cpp
+  Enemy.cpp
+  Explosion.cpp
+  Game.cpp
+  GameObject.cpp
+  Main.cpp
+  Map.cpp
+  Player.cpp
+  StrongEnemy.cpp
+  TextureManager.cpp
+  Tilecpp.cpp
+  Compiling...
+  Generating Code...
   SDL_GameTemplate.vcxproj -> C:\Users\Gabi\Desktop\Professional\Facultate\Anul2 - Sem1\POO\#ProiectFinal\SDL_GameTemplate - InputMiscareJucator\x64\Debug\SDL_GameTemplate.exe
+C:\Users\Gabi\Desktop\Professional\Facultate\Anul2 - Sem1\POO\#ProiectFinal\SDL_GameTemplate - InputMiscareJucator\SDL_LIB\SDL2-2.0.8\include\SDL_rect.h(76): warning C26812: The enum type 'SDL_bool' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).
+C:\Users\Gabi\Desktop\Professional\Facultate\Anul2 - Sem1\POO\#ProiectFinal\SDL_GameTemplate - InputMiscareJucator\SDL_GameTemplate\Enemy.cpp(15): warning C26495: Variable 'Enemy::ordernumber' is uninitialized. Always initialize a member variable (type.6).
+C:\Users\Gabi\Desktop\Professional\Facultate\Anul2 - Sem1\POO\#ProiectFinal\SDL_GameTemplate - InputMiscareJucator\SDL_GameTemplate\GameObject.h(7): warning C26495: Variable 'GameObject::renderer' is uninitialized. Always initialize a member variable (type.6).
+C:\Users\Gabi\Desktop\Professional\Facultate\Anul2 - Sem1\POO\#ProiectFinal\SDL_GameTemplate - InputMiscareJucator\SDL_GameTemplate\Player.cpp(56): warning C26812: The enum type 'KEY_PRESSED' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).

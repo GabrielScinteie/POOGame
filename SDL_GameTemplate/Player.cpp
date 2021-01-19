@@ -122,7 +122,7 @@ void Player::handleevent(SDL_Event& event)
 
 						lastplanted = Bomb::nrBombs;
 						Bomb::allBombs[Bomb::nrBombs] = new Bomb("assets/BombAnimation.png", renderer, *tempdest);
-						std::cout << "Bomba " << Bomb::nrBombs << " creata\n";
+						//std::cout << "Bomba " << Bomb::nrBombs << " creata\n";
 						Bomb::nrBombs++;
 
 						delete tempdest;

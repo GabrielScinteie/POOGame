@@ -14,7 +14,7 @@ int main(int argc, char* args[])
 	const int frameDelay = 1000 / fps;
 	Game *game = new Game();
 
-	game->init("GameTitle", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, false,LEVEL_HEIGHT,LEVEL_WIDTH);
+	game->init("Bomberman", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, false,LEVEL_HEIGHT,LEVEL_WIDTH);
 
 	while (game->running())
 	{

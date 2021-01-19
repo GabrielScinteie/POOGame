@@ -1,0 +1,2 @@
+C:\Users\Gabi\Desktop\Professional\Facultate\Anul2 - Sem1\POO\#ProiectFinal\SDL_GameTemplate - InputMiscareJucator\x64\Debug\SDL_GameTemplate.exe.lastcodeanalysissucceeded
+C:\Users\Gabi\Desktop\Professional\Facultate\Anul2 - Sem1\POO\#ProiectFinal\SDL_GameTemplate - InputMiscareJucator\SDL_GameTemplate\x64\Debug\NativeCodeAnalysis.read.1.tlog
